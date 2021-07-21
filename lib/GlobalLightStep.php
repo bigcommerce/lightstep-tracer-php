@@ -1,25 +1,10 @@
 <?php
 
-use LightStepBase\Span;
+namespace LightStepBase;
 
-require_once(__DIR__ . '/vendor/Thrift/Type/TType.php');
-require_once(__DIR__ . '/Client/ClientTracer.php');
-require_once(__DIR__ . '/generated/Lightstep/Collector/Auth.php');
-require_once(__DIR__ . '/generated/Lightstep/Collector/KeyValue.php');
-require_once(__DIR__ . '/generated/Lightstep/Collector/Log.php');
-require_once(__DIR__ . '/generated/Lightstep/Collector/MetricsSample.php');
-require_once(__DIR__ . '/generated/Lightstep/Collector/InternalMetrics.php');
-require_once(__DIR__ . '/generated/Lightstep/Collector/Reference.php');
-require_once(__DIR__ . '/generated/Lightstep/Collector/Reference/Relationship.php');
-require_once(__DIR__ . '/generated/Lightstep/Collector/ReportRequest.php');
-require_once(__DIR__ . '/generated/Lightstep/Collector/Reporter.php');
-require_once(__DIR__ . '/generated/Lightstep/Collector/SpanContext.php');
-require_once(__DIR__ . '/generated/Lightstep/Collector/Span.php');
-require_once(__DIR__ . '/generated/GPBMetadata/Collector.php');
-require_once(__DIR__ . '/generated/GPBMetadata/Google/Api/Annotations.php');
-require_once(__DIR__ . '/generated/GPBMetadata/Google/Api/Http.php');
+use LightStepBase\Client\ClientTracer;
 
-class LightStep {
+class GlobalLightStep {
 
     /**
      * The singleton instance of the tracer.
@@ -107,7 +92,7 @@ class LightStep {
         if ($access_token != NULL) {
            $opts['access_token'] = $access_token;
         }
-        return new LightStepBase\Client\ClientTracer($opts);
+        return new ClientTracer($opts);
     }
 
     /*
@@ -128,4 +113,4 @@ class LightStep {
     public static function disable() {
         self::getInstance()->disable();
     }
-};
+}

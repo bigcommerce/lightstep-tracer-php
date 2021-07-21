@@ -63,5 +63,5 @@ thrift:
 .PHONY: proto
 proto:
 	protoc --proto_path "$(PWD)/../googleapis:$(PWD)/../lightstep-tracer-common/" \
-		--php_out="$(PWD)/lib/generated" \
+		--php_out="$(PWD)/generated" \
 		collector.proto google/api/annotations.proto google/api/http.proto

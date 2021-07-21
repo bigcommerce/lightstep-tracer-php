@@ -13,6 +13,7 @@ class TransportHTTPJSON {
     protected $_port = 0;
     protected $_verbose = 0;
     protected $_timeout;
+    protected $read_timeout = 2;
 
     /**
      * @var LoggerInterface
@@ -42,6 +43,10 @@ class TransportHTTPJSON {
 
         if (isset($options['http_connection_timeout'])) {
             $this->_timeout = $options['http_connection_timeout'];
+        }
+
+        if (isset($options['http_read_timeout'])) {
+            $this->read_timeout = $options['http_read_timeout'];
         }
     }
 
@@ -81,6 +86,7 @@ class TransportHTTPJSON {
         @fwrite($fp, "POST /api/v0/reports HTTP/1.1\r\n");
         @fwrite($fp, $header . $content);
         @fflush($fp);
+        stream_set_timeout($fp, $this->read_timeout);
         // Wait and read first line of the response e.g. (HTTP/1.1 2xx OK)
         // otherwise the connection will close before the request is complete,
         // leading to a context cancellation down stream.

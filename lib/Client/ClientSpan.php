@@ -8,9 +8,6 @@ use Lightstep\Collector\SpanContext;
 use Google\Protobuf\Timestamp;
 use LightStepBase\Tracer;
 
-require_once(dirname(__FILE__) . "/Util.php");
-require_once(dirname(__FILE__) . "/../../thrift/CroutonThrift/Types.php");
-
 class ClientSpan implements \LightStepBase\Span {
 
     protected $_tracer = NULL;

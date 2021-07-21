@@ -5,20 +5,6 @@ use LightStepBase\Span;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 
-require_once(dirname(__FILE__) . "/../api.php");
-require_once(dirname(__FILE__) . "/ClientSpan.php");
-require_once(dirname(__FILE__) . "/NoOpSpan.php");
-require_once(dirname(__FILE__) . "/Util.php");
-require_once(dirname(__FILE__) . "/Transports/TransportUDP.php");
-require_once(dirname(__FILE__) . "/Transports/TransportHTTPJSON.php");
-require_once(dirname(__FILE__) . "/Transports/TransportHTTPPROTO.php");
-require_once(dirname(__FILE__) . "/Version.php");
-require_once(dirname(__FILE__) . "/Auth.php");
-require_once(dirname(__FILE__) . "/Runtime.php");
-require_once(dirname(__FILE__) . "/KeyValue.php");
-require_once(dirname(__FILE__) . "/ReportRequest.php");
-require_once(dirname(__FILE__) . "/LogRecord.php");
-
 define('CARRIER_TRACER_STATE_PREFIX', 'ot-tracer-');
 define('CARRIER_BAGGAGE_PREFIX', 'ot-baggage-');
 
