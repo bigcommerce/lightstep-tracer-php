@@ -14,11 +14,24 @@
     },
     "autoload": {
         "psr-4": {
-            "LightStepBase\\": "lib"
+            "LightStepBase\\": "lib/",
+            "Lightstep\\": "generated/Lightstep/",
+            "GPBMetadata\\": "generated/GPBMetadata/",
+            "Google\\Api\\": "generated/Google/Api/",
+            "Thrift\\": "thrift/Thrift/"
         },
         "files": [
-            "lib/LightStep.php"
+            "lib/api.php",
+            "lib/class_aliases.php",
+            "lib/Client/Version.php",
+            "thrift/CroutonThrift/ReportingService.php",
+            "thrift/CroutonThrift/Types.php"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "": "test"
+        }
     },
     "version": "1.1.2",
     "config": {

@@ -1,9 +1,6 @@
 <?php
 namespace LightStepBase\Client;
 
-require_once(dirname(__FILE__) . "/Util.php");
-require_once(dirname(__FILE__) . "/../../thrift/CroutonThrift/Types.php");
-
 class NoOpSpan implements \LightStepBase\Span {
     public function guid() { return ""; }
     public function setRuntimeGUID($guid) {}

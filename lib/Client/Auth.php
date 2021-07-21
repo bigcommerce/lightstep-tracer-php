@@ -3,9 +3,6 @@ namespace LightStepBase\Client;
 
 use Lightstep\Collector\Auth as ProtoAuth;
 
-require_once(dirname(__FILE__) . "/Util.php");
-require_once(dirname(__FILE__) . "/../../thrift/CroutonThrift/Types.php");
-
 /**
  * Class Auth encapsulates the data required to create an Auth object for RPC.
  * @package LightStepBase\Client

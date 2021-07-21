@@ -4,10 +4,6 @@ namespace LightStepBase\Client;
 use Lightstep\Collector\Reporter;
 use Lightstep\Collector\KeyValue;
 
-require_once(dirname(__FILE__) . "/Util.php");
-require_once(dirname(__FILE__) . "/../../thrift/CroutonThrift/Types.php");
-
-
 /**
  * Class Runtime encapsulates the data required to form a Runtime RPC object.
  * @package LightStepBase\Client
