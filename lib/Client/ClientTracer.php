@@ -95,8 +95,14 @@ class ClientTracer implements \LightStepBase\Tracer, LoggerAwareInterface {
             $this->_transport = new Transports\TransportUDP($this->logger());
         } else if ($this->_options['transport'] == 'http_proto') {
             $this->_transport = new Transports\TransportHTTPPROTO($this->logger());
-        } else {
+        } else if ($this->_options['transport'] == 'http_json') {
             $this->_transport = new Transports\TransportHTTPJSON($this->logger());
+        } else if (
+            is_object($this->_options['transport']) &&
+            method_exists($this->_options['transport'], 'ensureConnection') &&
+            method_exists($this->_options['transport'], 'flushReport')
+        ) {
+            $this->_transport = $this->_options['transport'];
         }
 
         // Note: the GUID is not generated until the library is initialized

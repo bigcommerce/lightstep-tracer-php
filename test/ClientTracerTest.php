@@ -155,4 +155,15 @@ class ClientTracerTest extends BaseLightStepTest
             $this->assertSame(80, $port);
         }
     }
+
+    public function testCustomTransportFromObject() {
+        $transport = new class {
+            public function ensureConnection() {}
+            public function flushReport() {}
+        };
+
+        $tracer = new ClientTracer(['transport' => $transport]);
+
+        $this->assertSame($transport, $this->readAttribute($tracer, '_transport'));
+    }
 }
