@@ -12,7 +12,7 @@ class NoOpSpan implements \LightStepBase\Span {
 
     public function setEndUserId($id) {}
 
-    public function tracer() { return LightStep::getInstance(); }
+    public function tracer() { return \LightStep::getInstance(); }
     public function setTag($key, $value) {}
     public function setBaggageItem($key, $value) {}
     public function getBaggageItem($key) {}
