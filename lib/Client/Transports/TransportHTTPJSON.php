@@ -61,7 +61,7 @@ class TransportHTTPJSON {
         $thriftReport = $report->toThrift();
 
         if ($this->_verbose >= 3) {
-            $this->logger->debug('report contents:', $thriftReport);
+            $this->logger->debug('report contents', ['report' => $thriftReport]);
         }
 
         $content = json_encode($thriftReport);
